@@ -1,7 +1,6 @@
 package com.gildedrose.wrappers;
 
 import com.gildedrose.Item;
-import com.gildedrose.UpdateItemTrait;
 
 public class AgedBrieItemWrapper extends ItemWrapper implements UpdateItemTrait {
 

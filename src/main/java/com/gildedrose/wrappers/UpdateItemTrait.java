@@ -1,4 +1,6 @@
-package com.gildedrose;
+package com.gildedrose.wrappers;
+
+import com.gildedrose.Item;
 
 public interface UpdateItemTrait {
     default void update(Item item) {

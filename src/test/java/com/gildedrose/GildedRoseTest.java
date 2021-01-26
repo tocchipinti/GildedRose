@@ -1,6 +1,7 @@
 package com.gildedrose;
 
 import com.gildedrose.wrappers.AgedBrieItemWrapper;
+import com.gildedrose.wrappers.BackstagePassWrapper;
 import com.gildedrose.wrappers.ItemNames;
 import com.gildedrose.wrappers.ItemWrapper;
 import org.junit.jupiter.api.Test;
@@ -130,5 +131,136 @@ class GildedRoseTest {
         assertEquals(ItemNames.Names.AGED_BRIE, app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(50, app.items[0].getItem().quality);
+    }
+
+    // BackstagePass Tests
+    @Test
+    void backstagePassIncreaseByOneAboveTen() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 11, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(10, app.items[0].getItem().sellIn);
+        assertEquals(6, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void backstagePassIncreaseByTwoAboveFiveBelowTen() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 6, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(5, app.items[0].getItem().sellIn);
+        assertEquals(7, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void backstagePassIncreaseByThreeAboveZeroBelowFive() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 3, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(2, app.items[0].getItem().sellIn);
+        assertEquals(8, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void backstagePassIncreaseByOneAndTwo() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 11, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(10, app.items[0].getItem().sellIn);
+        assertEquals(6, app.items[0].getItem().quality);
+
+        // Act Again
+        app.updateQuality();
+
+        // Assert Again
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(9, app.items[0].getItem().sellIn);
+        assertEquals(8, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void backstagePassIncreaseByTwoAndThree() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 6, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(5, app.items[0].getItem().sellIn);
+        assertEquals(7, app.items[0].getItem().quality);
+
+        // Act Again
+        app.updateQuality();
+
+        // Assert Again
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(4, app.items[0].getItem().sellIn);
+        assertEquals(10, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void backstagePassIncreaseByThreeToZero() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 1, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(0, app.items[0].getItem().sellIn);
+        assertEquals(8, app.items[0].getItem().quality);
+
+        // Act Again
+        app.updateQuality();
+
+        // Assert Again
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(-1, app.items[0].getItem().sellIn);
+        assertEquals(0, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void backStagePassNotToHighQuality() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 0, 50)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(-1, app.items[0].getItem().sellIn);
+        assertEquals(0, app.items[0].getItem().quality);
     }
 }

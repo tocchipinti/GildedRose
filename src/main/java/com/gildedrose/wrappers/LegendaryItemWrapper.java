@@ -1,7 +1,6 @@
 package com.gildedrose.wrappers;
 
 import com.gildedrose.Item;
-import com.gildedrose.UpdateItemTrait;
 
 public class LegendaryItemWrapper extends ItemWrapper implements UpdateItemTrait {
 
@@ -14,5 +13,6 @@ public class LegendaryItemWrapper extends ItemWrapper implements UpdateItemTrait
         // Being a Legendary item we do not sell the item
         // We also don't decrease or increase the quality
         // How can something so legendary be sold or become less qualitative...
+        // So for now we do nothing :)
     }
 }
