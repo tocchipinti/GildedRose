@@ -1,9 +1,6 @@
 package com.gildedrose;
 
-import com.gildedrose.wrappers.AgedBrieItemWrapper;
-import com.gildedrose.wrappers.BackstagePassWrapper;
-import com.gildedrose.wrappers.ItemNames;
-import com.gildedrose.wrappers.ItemWrapper;
+import com.gildedrose.wrappers.*;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -14,7 +11,8 @@ class GildedRoseTest {
     @Test
     void standardItemDecreaseOneDay() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 10, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -29,7 +27,8 @@ class GildedRoseTest {
     @Test
     void standardItemDecreaseTwoDays() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 10, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -50,9 +49,10 @@ class GildedRoseTest {
     }
 
     @Test
-    void standardItemDecreaseQualityByTwoIfSellIsZero() {
+    void standardItemDecreaseQualityByTwoIfSellIsZeroOrLess() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 0, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 0, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -67,7 +67,8 @@ class GildedRoseTest {
     @Test
     void standardItemNoNegativeQuality() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 0, 0)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 0, 0)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -83,7 +84,8 @@ class GildedRoseTest {
     @Test
     void agedBrieIncreaseOneDay() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 10, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -98,7 +100,8 @@ class GildedRoseTest {
     @Test
     void agedBrieIncreaseTwoDays() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 10, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -121,7 +124,8 @@ class GildedRoseTest {
     @Test
     void agedBrieNotToHighQuality() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 0, 50)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 0, 50)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -153,7 +157,8 @@ class GildedRoseTest {
     @Test
     void backstagePassIncreaseByTwoAboveFiveBelowTen() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 6, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 6, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -168,7 +173,8 @@ class GildedRoseTest {
     @Test
     void backstagePassIncreaseByThreeAboveZeroBelowFive() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 3, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 3, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -183,7 +189,8 @@ class GildedRoseTest {
     @Test
     void backstagePassIncreaseByOneAndTwo() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 11, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 11, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -206,7 +213,8 @@ class GildedRoseTest {
     @Test
     void backstagePassIncreaseByTwoAndThree() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 6, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 6, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -229,7 +237,8 @@ class GildedRoseTest {
     @Test
     void backstagePassIncreaseByThreeToZero() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 1, 5)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 1, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -252,7 +261,8 @@ class GildedRoseTest {
     @Test
     void backStagePassNotToHighQuality() {
         // Arrange
-        ItemWrapper[] wrappers = new ItemWrapper[] { new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 0, 50)) };
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 0, 50)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
@@ -260,6 +270,79 @@ class GildedRoseTest {
 
         // Assert
         assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(-1, app.items[0].getItem().sellIn);
+        assertEquals(0, app.items[0].getItem().quality);
+    }
+
+    // Conjured Item Tests
+    @Test
+    void conjuredItemDecreaseOneDay() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new ConjuredItemWrapper(new Item(ItemNames.Names.CONJURED_ITEM, 10, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(9, app.items[0].getItem().sellIn);
+        assertEquals(3, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void conjuredItemDecreaseTwoDays() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new ConjuredItemWrapper(new Item(ItemNames.Names.CONJURED_ITEM, 10, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(9, app.items[0].getItem().sellIn);
+        assertEquals(3, app.items[0].getItem().quality);
+
+        // Act Again
+        app.updateQuality();
+
+        // Assert Again
+        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(8, app.items[0].getItem().sellIn);
+        assertEquals(1, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void conjuredItemDecreaseQualityByTwoIfSellIsZeroOrLess() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new ConjuredItemWrapper(new Item(ItemNames.Names.CONJURED_ITEM, 0, 5)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(-1, app.items[0].getItem().sellIn);
+        assertEquals(1, app.items[0].getItem().quality);
+    }
+
+    @Test
+    void conjuredItemNoNegativeQuality() {
+        // Arrange
+        ItemWrapper[] wrappers = new ItemWrapper[] {
+                new ConjuredItemWrapper(new Item(ItemNames.Names.CONJURED_ITEM, 0, 0)) };
+        GildedRose app = new GildedRose(wrappers);
+
+        // Act
+        app.updateQuality();
+
+        // Assert
+        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(0, app.items[0].getItem().quality);
     }
