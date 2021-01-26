@@ -8,13 +8,13 @@ public class TextTestFixture {
 
         ItemWrapper[] items = new ItemWrapper[] {
                 new ItemWrapper(new Item("+5 Dexterity Vest", 10, 20)),
-                new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 2, 0)),
+                new AgedBrieItemWrapper(new Item(ItemNames.AGED_BRIE.getLabel(), 2, 0)),
                 new ItemWrapper(new Item("Elixir of the Mongoose", 5, 7)),
                 new LegendaryItemWrapper(new Item("Sulfuras, Hand of Ragnaros", 0, 80)),
                 new LegendaryItemWrapper(new Item("Sulfuras, Hand of Ragnaros", -1, 80)),
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 15, 20)),
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 10, 49)),
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 5, 49)),
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 15, 20)),
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 10, 49)),
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 5, 49)),
                 new ConjuredItemWrapper(new Item("Conjured Mana Cake", 3, 6))
         };
 

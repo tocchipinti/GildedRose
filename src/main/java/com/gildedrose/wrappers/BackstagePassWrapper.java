@@ -8,6 +8,13 @@ public class BackstagePassWrapper extends ItemWrapper implements UpdateItemTrait
         super(item);
     }
 
+    /**
+     * The UpdateItemTrait is overridden to lower the quality by one
+     * two or three depending on the number of sellIn left
+     * Also this method makes sure the quality will not
+     * go above fifty
+     * @param item The Item that is going to be sold
+     */
     @Override
     public void update(Item item) {
         if (item.sellIn > 10) {

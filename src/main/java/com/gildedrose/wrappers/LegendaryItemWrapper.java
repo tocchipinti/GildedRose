@@ -8,11 +8,11 @@ public class LegendaryItemWrapper extends ItemWrapper implements UpdateItemTrait
         super(item);
     }
 
+    /**
+     * The UpdateItemTrait is overridden to not do anything
+     * Being a Legendary item the values must stay the same
+     * @param item The Item that is going to be sold
+     */
     @Override
-    public void update(Item item) {
-        // Being a Legendary item we do not sell the item
-        // We also don't decrease or increase the quality
-        // How can something so legendary be sold or become less qualitative...
-        // So for now we do nothing :)
-    }
+    public void update(Item item) {}
 }

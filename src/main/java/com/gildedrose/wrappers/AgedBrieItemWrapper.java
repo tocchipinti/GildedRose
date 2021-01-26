@@ -8,6 +8,12 @@ public class AgedBrieItemWrapper extends ItemWrapper implements UpdateItemTrait 
         super(item);
     }
 
+    /**
+     * The UpdateItemTrait is overridden to up the quality by one
+     * instead of lowering the quality
+     * Also this method checks if quality is below 50
+     * @param item The Item that is going to be sold
+     */
     @Override
     public void update(Item item) {
         if (item.quality < 50) {

@@ -12,14 +12,14 @@ class GildedRoseTest {
     void standardItemDecreaseOneDay() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 10, 5)) };
+                new ItemWrapper(new Item(ItemNames.STANDARD_ITEM.getLabel(), 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.STANDARD_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.STANDARD_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(9, app.items[0].getItem().sellIn);
         assertEquals(4, app.items[0].getItem().quality);
     }
@@ -28,14 +28,14 @@ class GildedRoseTest {
     void standardItemDecreaseTwoDays() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 10, 5)) };
+                new ItemWrapper(new Item(ItemNames.STANDARD_ITEM.getLabel(), 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.STANDARD_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.STANDARD_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(9, app.items[0].getItem().sellIn);
         assertEquals(4, app.items[0].getItem().quality);
 
@@ -43,7 +43,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Assert Again
-        assertEquals(ItemNames.Names.STANDARD_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.STANDARD_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(8, app.items[0].getItem().sellIn);
         assertEquals(3, app.items[0].getItem().quality);
     }
@@ -52,14 +52,14 @@ class GildedRoseTest {
     void standardItemDecreaseQualityByTwoIfSellIsZeroOrLess() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 0, 5)) };
+                new ItemWrapper(new Item(ItemNames.STANDARD_ITEM.getLabel(), 0, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.STANDARD_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.STANDARD_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(3, app.items[0].getItem().quality);
     }
@@ -68,14 +68,14 @@ class GildedRoseTest {
     void standardItemNoNegativeQuality() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new ItemWrapper(new Item(ItemNames.Names.STANDARD_ITEM, 0, 0)) };
+                new ItemWrapper(new Item(ItemNames.STANDARD_ITEM.getLabel(), 0, 0)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.STANDARD_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.STANDARD_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(0, app.items[0].getItem().quality);
     }
@@ -85,14 +85,14 @@ class GildedRoseTest {
     void agedBrieIncreaseOneDay() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 10, 5)) };
+                new AgedBrieItemWrapper(new Item(ItemNames.AGED_BRIE.getLabel(), 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.AGED_BRIE, app.items[0].getItem().name);
+        assertEquals(ItemNames.AGED_BRIE.getLabel(), app.items[0].getItem().name);
         assertEquals(9, app.items[0].getItem().sellIn);
         assertEquals(6, app.items[0].getItem().quality);
     }
@@ -101,14 +101,14 @@ class GildedRoseTest {
     void agedBrieIncreaseTwoDays() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 10, 5)) };
+                new AgedBrieItemWrapper(new Item(ItemNames.AGED_BRIE.getLabel(), 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.AGED_BRIE, app.items[0].getItem().name);
+        assertEquals(ItemNames.AGED_BRIE.getLabel(), app.items[0].getItem().name);
         assertEquals(9, app.items[0].getItem().sellIn);
         assertEquals(6, app.items[0].getItem().quality);
 
@@ -116,7 +116,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Assert Again
-        assertEquals(ItemNames.Names.AGED_BRIE, app.items[0].getItem().name);
+        assertEquals(ItemNames.AGED_BRIE.getLabel(), app.items[0].getItem().name);
         assertEquals(8, app.items[0].getItem().sellIn);
         assertEquals(7, app.items[0].getItem().quality);
     }
@@ -125,14 +125,14 @@ class GildedRoseTest {
     void agedBrieNotToHighQuality() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new AgedBrieItemWrapper(new Item(ItemNames.Names.AGED_BRIE, 0, 50)) };
+                new AgedBrieItemWrapper(new Item(ItemNames.AGED_BRIE.getLabel(), 0, 50)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.AGED_BRIE, app.items[0].getItem().name);
+        assertEquals(ItemNames.AGED_BRIE.getLabel(), app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(50, app.items[0].getItem().quality);
     }
@@ -142,14 +142,14 @@ class GildedRoseTest {
     void backstagePassIncreaseByOneAboveTen() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 11, 5)) };
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 11, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(10, app.items[0].getItem().sellIn);
         assertEquals(6, app.items[0].getItem().quality);
     }
@@ -158,14 +158,14 @@ class GildedRoseTest {
     void backstagePassIncreaseByTwoAboveFiveBelowTen() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 6, 5)) };
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 6, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(5, app.items[0].getItem().sellIn);
         assertEquals(7, app.items[0].getItem().quality);
     }
@@ -174,14 +174,14 @@ class GildedRoseTest {
     void backstagePassIncreaseByThreeAboveZeroBelowFive() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 3, 5)) };
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 3, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(2, app.items[0].getItem().sellIn);
         assertEquals(8, app.items[0].getItem().quality);
     }
@@ -190,14 +190,14 @@ class GildedRoseTest {
     void backstagePassIncreaseByOneAndTwo() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 11, 5)) };
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 11, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(10, app.items[0].getItem().sellIn);
         assertEquals(6, app.items[0].getItem().quality);
 
@@ -205,7 +205,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Assert Again
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(9, app.items[0].getItem().sellIn);
         assertEquals(8, app.items[0].getItem().quality);
     }
@@ -214,14 +214,14 @@ class GildedRoseTest {
     void backstagePassIncreaseByTwoAndThree() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 6, 5)) };
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 6, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(5, app.items[0].getItem().sellIn);
         assertEquals(7, app.items[0].getItem().quality);
 
@@ -229,7 +229,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Assert Again
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(4, app.items[0].getItem().sellIn);
         assertEquals(10, app.items[0].getItem().quality);
     }
@@ -238,14 +238,14 @@ class GildedRoseTest {
     void backstagePassIncreaseByThreeToZero() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 1, 5)) };
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 1, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(0, app.items[0].getItem().sellIn);
         assertEquals(8, app.items[0].getItem().quality);
 
@@ -253,7 +253,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Assert Again
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(0, app.items[0].getItem().quality);
     }
@@ -262,14 +262,14 @@ class GildedRoseTest {
     void backStagePassNotToHighQuality() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new BackstagePassWrapper(new Item(ItemNames.Names.BACKSTAGE_PASS, 0, 50)) };
+                new BackstagePassWrapper(new Item(ItemNames.BACKSTAGE_PASS.getLabel(), 0, 50)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.BACKSTAGE_PASS, app.items[0].getItem().name);
+        assertEquals(ItemNames.BACKSTAGE_PASS.getLabel(), app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(0, app.items[0].getItem().quality);
     }
@@ -279,14 +279,14 @@ class GildedRoseTest {
     void conjuredItemDecreaseOneDay() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new ConjuredItemWrapper(new Item(ItemNames.Names.CONJURED_ITEM, 10, 5)) };
+                new ConjuredItemWrapper(new Item(ItemNames.CONJURED_ITEM.getLabel(), 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.CONJURED_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(9, app.items[0].getItem().sellIn);
         assertEquals(3, app.items[0].getItem().quality);
     }
@@ -295,14 +295,14 @@ class GildedRoseTest {
     void conjuredItemDecreaseTwoDays() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new ConjuredItemWrapper(new Item(ItemNames.Names.CONJURED_ITEM, 10, 5)) };
+                new ConjuredItemWrapper(new Item(ItemNames.CONJURED_ITEM.getLabel(), 10, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.CONJURED_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(9, app.items[0].getItem().sellIn);
         assertEquals(3, app.items[0].getItem().quality);
 
@@ -310,7 +310,7 @@ class GildedRoseTest {
         app.updateQuality();
 
         // Assert Again
-        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.CONJURED_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(8, app.items[0].getItem().sellIn);
         assertEquals(1, app.items[0].getItem().quality);
     }
@@ -319,14 +319,14 @@ class GildedRoseTest {
     void conjuredItemDecreaseQualityByTwoIfSellIsZeroOrLess() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new ConjuredItemWrapper(new Item(ItemNames.Names.CONJURED_ITEM, 0, 5)) };
+                new ConjuredItemWrapper(new Item(ItemNames.CONJURED_ITEM.getLabel(), 0, 5)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.CONJURED_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(1, app.items[0].getItem().quality);
     }
@@ -335,14 +335,14 @@ class GildedRoseTest {
     void conjuredItemNoNegativeQuality() {
         // Arrange
         ItemWrapper[] wrappers = new ItemWrapper[] {
-                new ConjuredItemWrapper(new Item(ItemNames.Names.CONJURED_ITEM, 0, 0)) };
+                new ConjuredItemWrapper(new Item(ItemNames.CONJURED_ITEM.getLabel(), 0, 0)) };
         GildedRose app = new GildedRose(wrappers);
 
         // Act
         app.updateQuality();
 
         // Assert
-        assertEquals(ItemNames.Names.CONJURED_ITEM, app.items[0].getItem().name);
+        assertEquals(ItemNames.CONJURED_ITEM.getLabel(), app.items[0].getItem().name);
         assertEquals(-1, app.items[0].getItem().sellIn);
         assertEquals(0, app.items[0].getItem().quality);
     }
